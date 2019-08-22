@@ -76,6 +76,13 @@ public class SearchCityActivity extends AppCompatActivity implements SearchCityC
         LinearLayoutManager manager = new LinearLayoutManager(SearchCityActivity.this, RecyclerView.VERTICAL, false);
         listCities.setLayoutManager(manager);
         CityAdapter cityAdapter = new CityAdapter(this, cities);
+        cityAdapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //intena lista de restaurantes
+                showErrorMessage("intent a lista de restaurantes");
+            }
+        });
         listCities.setAdapter(cityAdapter);
     }
 

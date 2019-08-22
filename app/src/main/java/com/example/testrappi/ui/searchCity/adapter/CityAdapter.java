@@ -2,7 +2,6 @@ package com.example.testrappi.ui.searchCity.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.testrappi.R;
 import com.example.testrappi.models.City;
+import com.example.testrappi.utils.ImagenUtils;
 
 import java.util.List;
 
-public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityAdapterViewHolder>{
+public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityAdapterViewHolder>
+                            implements View.OnClickListener{
 
     private Context context;
     private List<City> cities;
+    public View.OnClickListener listener;
 
     public CityAdapter(Context context, List<City> cities) {
         this.context = context;
@@ -42,6 +44,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityAdapterVie
     @Override
     public CityAdapter.CityAdapterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_city, parent, false);
+        itemView.setOnClickListener(this);
         return new CityAdapter.CityAdapterViewHolder(itemView);
     }
 
@@ -49,7 +52,6 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityAdapterVie
     @Override
     public void onBindViewHolder(CityAdapter.CityAdapterViewHolder holder, final int position) {
         final City city = cities.get(position);
-        Log.d("DEBUG", "11111");
 
         TextView txtCountry = holder.txtCountry;
         TextView txtCity = holder.txtCity;
@@ -57,13 +59,24 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityAdapterVie
 
         txtCity.setText(city.getName());
         txtCountry.setText(city.getCountry_name());
-
+        ImagenUtils.loadImage(context, city.getCountry_flag_url(), imageFlag);
 
     }
 
     @Override
     public int getItemCount() {
         return cities.size();
+    }
+
+    public void setOnClickListener(View.OnClickListener listener) {
+        this.listener = listener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(listener != null){
+            listener.onClick(v);
+        }
     }
 
 }

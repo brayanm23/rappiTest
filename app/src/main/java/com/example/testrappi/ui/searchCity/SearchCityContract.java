@@ -20,7 +20,5 @@ public interface SearchCityContract {
 
         void getCities(String query);
 
-
-
     }
 }

@@ -47,7 +47,7 @@ public class ListRestaurantActivity extends AppCompatActivity implements ListRes
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         ButterKnife.bind(this);
-        getSupportActionBar().setTitle("Restaurantes");
+        getSupportActionBar().setTitle(getString(R.string.label_restaurants));
         progressDialog = new ProgressDialog(this);
         mPresenter = new ListRestaurantPresenter(this, this);
         Intent intent = getIntent();

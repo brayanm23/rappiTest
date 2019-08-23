@@ -58,14 +58,14 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/txtTimings"
                         android:fontFamily="sans-serif-light"
-                        android:maxLines="1"
+                        android:maxLines="4"
                         android:textSize="@dimen/textsize_s"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtPhone"
                         android:fontFamily="sans-serif-light"
-                        android:maxLines="1"
+                        android:maxLines="4"
                         android:textSize="@dimen/textsize_s"/>
                     <TextView
                         android:layout_width="wrap_content"

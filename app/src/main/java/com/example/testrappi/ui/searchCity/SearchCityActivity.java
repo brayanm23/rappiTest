@@ -43,7 +43,7 @@ public class SearchCityActivity extends AppCompatActivity implements SearchCityC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_city);
         ButterKnife.bind(this);
-        getSupportActionBar().setTitle("Buscar Ciudades");
+        getSupportActionBar().setTitle(getString(R.string.select_city));
         progressDialog = new ProgressDialog(this);
         mPresenter = new SearchCityPresenter(this, this);
         btnSearch.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +53,7 @@ public class SearchCityActivity extends AppCompatActivity implements SearchCityC
                     showProgressDialog(getString(R.string.searching));
                     mPresenter.getCities(edtSearch.getText().toString());
                 } else {
-                    Toast.makeText(SearchCityActivity.this, "el campo ciudad no puede ser vacio", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SearchCityActivity.this, getString(R.string.edit_text_is_empty), Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -81,7 +81,6 @@ public class SearchCityActivity extends AppCompatActivity implements SearchCityC
         cityAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Brayan", cities.get(listCities.getChildAdapterPosition(v)).getId()+"");
                 Intent intent = new Intent(SearchCityActivity.this, ListRestaurantActivity.class);
                 Bundle extras = new Bundle();
                 extras.putSerializable("city", cities.get(listCities.getChildAdapterPosition(v)));

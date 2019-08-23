@@ -49,16 +49,11 @@ public class CollectionAdapter extends BaseAdapter {
         }
         final Collection collection = objectCollections.get(position).getCollection();
 
-
-        final ImageView imageCollection = (ImageView) view.findViewById(R.id.image);
+        ImageView imageCollection = (ImageView) view.findViewById(R.id.image);
         TextView txtTitle = (TextView) view.findViewById(R.id.txtTitle);
 
         txtTitle.setText(collection.getTitle());
         ImagenUtils.loadImage(context, collection.getImage_url(), imageCollection);
-
-
-
-
 
         return view;
     }

@@ -2,7 +2,6 @@ package com.example.testrappi.ui.RestaurantDetails;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,6 +53,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements OnMa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_details);
         ButterKnife.bind(this);
+        getSupportActionBar().hide();
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
         Intent intent = getIntent();
@@ -66,17 +66,15 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements OnMa
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        googleMap.setMinZoomPreference(12);
+        googleMap.setIndoorEnabled(true);
         googleMap.getUiSettings().setZoomControlsEnabled(true);
         googleMap.getUiSettings().setIndoorLevelPickerEnabled(true);
         googleMap.getUiSettings().setCompassEnabled(true);
-        Log.d("Debug", restaurant.getLocation().getLatitude()+"");
-        Log.d("Debug", restaurant.getLocation().getLongitude()+"");
         LatLng ny = new LatLng(restaurant.getLocation().getLatitude(), restaurant.getLocation().getLongitude());
-
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(ny);
         googleMap.addMarker(markerOptions);
-
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(ny));
     }
 

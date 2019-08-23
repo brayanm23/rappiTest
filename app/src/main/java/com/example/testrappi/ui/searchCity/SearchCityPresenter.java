@@ -4,15 +4,16 @@ import android.content.Context;
 
 import com.example.testrappi.R;
 import com.example.testrappi.api.callers.CitiesApiCaller;
+import com.example.testrappi.api.callers.RestaurantSearchApiCaller;
 import com.example.testrappi.api.observer.CallbackHandlingObserver;
 import com.example.testrappi.api.services.GeneralRestService;
-import com.example.testrappi.models.ListCities;
+import com.example.testrappi.models.city.ListCities;
 
 public class SearchCityPresenter implements SearchCityContract.Presenter {
 
     private Context context;
     private SearchCityContract.View mView;
-    private CallbackHandlingObserver<ListCities> observableUsers;
+    private CallbackHandlingObserver<ListCities> observableCities;
 
     public SearchCityPresenter(Context context, SearchCityContract.View mView){
         this.context = context;
@@ -21,15 +22,15 @@ public class SearchCityPresenter implements SearchCityContract.Presenter {
 
     @Override
     public void getCities(String query) {
-        setObservableUsers();
+        setObservableCities();
 
         final CitiesApiCaller caller = GeneralRestService.getCities(query);
 
-        caller.callApi().subscribeWith(observableUsers);
+        caller.callApi().subscribeWith(observableCities);
     }
 
-    private void setObservableUsers() {
-        observableUsers = new CallbackHandlingObserver<ListCities>(SearchCityPresenter.this, CitiesApiCaller.class) {
+    private void setObservableCities() {
+        observableCities = new CallbackHandlingObserver<ListCities>(SearchCityPresenter.this, RestaurantSearchApiCaller.class) {
             @Override
             protected void onSuccess(ListCities data) {
                 mView.viewCities(data.getListCities());

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.testrappi.R;
-import com.example.testrappi.models.City;
+import com.example.testrappi.models.city.City;
 import com.example.testrappi.utils.ImagenUtils;
 
 import java.util.List;

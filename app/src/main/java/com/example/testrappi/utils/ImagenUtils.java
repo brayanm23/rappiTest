@@ -13,8 +13,12 @@ public class ImagenUtils {
     public static void loadImage(Context context, String photoUrl, ImageView view) {
         if (!photoUrl.isEmpty()) {
             Picasso.with(context).load(photoUrl).
-//                error(ContextCompat.getDrawable(context,R.drawable.imagen_no_disponible)).
+                error(ContextCompat.getDrawable(context,R.drawable.placeholder)).
         into(view);
         }
+    }
+
+    public static void loadImage(Context context, int resource, ImageView view) {
+        Picasso.with(context).load(resource).into(view);
     }
 }

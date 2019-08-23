@@ -1,5 +1,7 @@
 package com.example.testrappi.api.definitions;
 
+import com.example.testrappi.models.restaurant.ListRestaurants;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -19,6 +21,8 @@ public interface RestaurantRestApi {
     Observable<?> getRestaurantRewiews(@Header("user_key") String user_key, @Query("res_id") Integer res_id);
 
     @GET("search")
-    Observable<?> searchOfRestautants(@Header("user_key") String user_key, @Query("res_id") Integer res_id);
+    Observable<ListRestaurants> searchOfRestautants(@Header("user_key") String user_key,
+                                                    @Query("entity_id") Integer city_id,
+                                                    @Query("entity_type") String entity_type);
 
 }

@@ -1,5 +1,6 @@
-package com.example.testrappi.models;
+package com.example.testrappi.models.city;
 
+import com.example.testrappi.models.city.City;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

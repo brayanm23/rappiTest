@@ -1,9 +1,7 @@
 package com.example.testrappi.api.definitions;
 
-import com.example.testrappi.models.City;
-import com.example.testrappi.models.ListCities;
-
-import java.util.List;
+import com.example.testrappi.models.city.ListCities;
+import com.example.testrappi.models.collection.ListCollections;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -26,11 +24,11 @@ public interface GeneralRestApi {
                                           @Query("count") Integer count);
 
     @GET("collections")
-    Observable<?> getZomatoCollectionsInCity(@Header("user_key") String user_key,
-                                             @Query("city_id") Integer city_id,
-                                             @Query("lat") Double lat,
-                                             @Query("lon") Double lon,
-                                             @Query("count") Integer count);
+    Observable<ListCollections> getZomatoCollectionsInCity(@Header("user_key") String user_key,
+                                                           @Query("city_id") Integer city_id,
+                                                            /*@Query("lat") Double lat,
+                                                            @Query("lon") Double lon,*/
+                                                            @Query("count") Integer count);
 
     @GET("cuisines")
     Observable<?> getListOfAllCousinesInCity(@Header("user_key") String user_key,

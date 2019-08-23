@@ -1,6 +1,7 @@
 package com.example.testrappi.ui.searchCity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.testrappi.R;
-import com.example.testrappi.models.City;
+import com.example.testrappi.models.city.City;
+import com.example.testrappi.ui.listRestaurantOfCity.ListRestaurantActivity;
 import com.example.testrappi.ui.searchCity.adapter.CityAdapter;
 
 import java.util.List;
@@ -79,8 +81,12 @@ public class SearchCityActivity extends AppCompatActivity implements SearchCityC
         cityAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //intena lista de restaurantes
-                showErrorMessage("intent a lista de restaurantes");
+                Log.d("Brayan", cities.get(listCities.getChildAdapterPosition(v)).getId()+"");
+                Intent intent = new Intent(SearchCityActivity.this, ListRestaurantActivity.class);
+                Bundle extras = new Bundle();
+                extras.putSerializable("city", cities.get(listCities.getChildAdapterPosition(v)));
+                intent.putExtras(extras);
+                startActivity(intent);
             }
         });
         listCities.setAdapter(cityAdapter);

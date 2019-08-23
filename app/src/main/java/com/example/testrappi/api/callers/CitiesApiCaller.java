@@ -1,10 +1,7 @@
 package com.example.testrappi.api.callers;
 
 import com.example.testrappi.api.definitions.GeneralRestApi;
-import com.example.testrappi.models.City;
-import com.example.testrappi.models.ListCities;
-
-import java.util.List;
+import com.example.testrappi.models.city.ListCities;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;

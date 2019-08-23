@@ -2,6 +2,7 @@ package com.example.testrappi.api.services;
 
 
 import com.example.testrappi.api.callers.CitiesApiCaller;
+import com.example.testrappi.api.callers.CollectionsApiCaller;
 import com.example.testrappi.api.definitions.GeneralRestApi;
 
 public class GeneralRestService extends AbstractRestService<GeneralRestApi> {
@@ -30,6 +31,11 @@ public class GeneralRestService extends AbstractRestService<GeneralRestApi> {
     public static CitiesApiCaller getCities(String query){
         return new CitiesApiCaller(getInstance().getService(), query);
     }
+
+    public static CollectionsApiCaller getCollections(Integer city_id){
+        return new CollectionsApiCaller(getInstance().getService(), city_id);
+    }
+
 
 }
 

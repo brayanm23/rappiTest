@@ -1,9 +1,11 @@
-package com.example.testrappi.models;
+package com.example.testrappi.models.city;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class City {
+import java.io.Serializable;
+
+public class City implements Serializable {
 
     @Expose
     @SerializedName("id")

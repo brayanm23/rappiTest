@@ -1,25 +1,25 @@
 <resources>
     <string name="app_name">TestRappi</string>
 
-    <string name="searching">Buscando…</string>
-    <string name="error_accessing_server">Se produjo un error al acceder al servidor</string>
-    <string name="error_time_out">La acción no se pudo realizar</string>
-    <string name="error_ocurred">Ha ocurrido un error, verifique su conexión a internet</string>
-    <string name="label_city">Ingrese una ciudad:</string>
-    <string name="select_city">Seleccionar ciudad</string>
-    <string name="label_restaurants">Restaurantes</string>
-    <string name="edit_text_is_empty">El campo no puede ser vacio</string>
-    <string name="edit_text_is_short">El campo debe contener dos o mas caracteres</string>
+    <string name="searching">Searching…</string>
+    <string name="error_accessing_server">There was an error accessing the server</string>
+    <string name="error_time_out">The action could not be performed</string>
+    <string name="error_ocurred">An error has occurred, verify your internet connection</string>
+    <string name="label_city">Enter a city:</string>
+    <string name="select_city">Select city</string>
+    <string name="label_restaurants">Restaurants</string>
+    <string name="edit_text_is_empty">The field cannot be empty</string>
+    <string name="edit_text_is_short">The field must contain two or more characters</string>
 
-    <string name="label_schedule">Horario:</string>
-    <string name="label_cousine">Tipo de Comida: </string>
-    <string name="label_average">Precio promedio de comida(2P): </string>
-    <string name="label_phone">Telefono: </string>
-    <string name="label_location">Ubicacion</string>
-    <string name="label_review">Comentarios</string>
+    <string name="label_schedule">Schedule:</string>
+    <string name="label_cousine">Type of Cuisine: </string>
+    <string name="label_average">Average food price(2P): </string>
+    <string name="label_phone">Phone: </string>
+    <string name="label_location">Location</string>
+    <string name="label_review">Reviews</string>
 
-    <string name="labelCity">Ciudad:</string>
-    <string name="label_address">Direccion:</string>
+    <string name="labelCity">City:</string>
+    <string name="label_address">Address:</string>
 
 
 </resources>

@@ -62,7 +62,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
         ImageView imgRest = holder.imgRest;
 
         try {
-            ImagenUtils.loadImage(context, restaurant.getFeatured_image(), imgRest);
+            ImagenUtils.loadImage(context, restaurant.getThumb(), imgRest);
         } catch (Exception e){
             //ImagenUtils.loadImage(context, R.drawable.placeholder, imgRest);
             e.printStackTrace();

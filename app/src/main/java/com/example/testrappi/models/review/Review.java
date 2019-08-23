@@ -10,7 +10,7 @@ public class Review implements Serializable {
 
     @Expose
     @SerializedName("rating")
-    private Integer rating;
+    private Float rating;
 
     @Expose
     @SerializedName("review_text")
@@ -27,11 +27,11 @@ public class Review implements Serializable {
     public Review() {
     }
 
-    public Integer getRating() {
+    public Float getRating() {
         return rating;
     }
 
-    public void setRating(Integer rating) {
+    public void setRating(Float rating) {
         this.rating = rating;
     }
 

@@ -1,6 +1,7 @@
 package com.example.testrappi.ui.RestaurantDetails;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.testrappi.R;
 import com.example.testrappi.api.callers.ReviewsApiCaller;

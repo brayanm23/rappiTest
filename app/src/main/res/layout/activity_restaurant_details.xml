@@ -50,7 +50,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtCuisines"
-                        android:fontFamily="sans-serif-light"
                         android:textSize="@dimen/textsize_s"
                         android:layout_marginBottom="3dp"/>
                     <TextView
@@ -64,16 +63,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtPhone"
-                        android:fontFamily="sans-serif-light"
+                        android:textStyle="italic"
                         android:maxLines="4"
-                        android:textSize="@dimen/textsize_s"/>
+                        android:textSize="@dimen/textsize_xs"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtAverageCostForTwo"
-                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/colorGrayLight"
+                        android:textStyle="bold"
                         android:maxLines="1"
-                        android:textSize="@dimen/textsize_s"/>
+                        android:textSize="@dimen/textsize_xxs"/>
 
                     <View
                         style="@style/SeparatorVertical"
@@ -96,14 +96,16 @@
                         android:id="@+id/txtAddress"
                         android:fontFamily="sans-serif-light"
                         android:maxLines="1"
+                        android:textStyle="bold"
                         android:textSize="@dimen/textsize_s"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtCity"
                         android:layout_marginBottom="3dp"
-                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/colorGrayLight"
                         android:maxLines="1"
+                        android:textStyle="italic"
                         android:textSize="@dimen/textsize_xs"/>
 
                     <com.google.android.gms.maps.MapView

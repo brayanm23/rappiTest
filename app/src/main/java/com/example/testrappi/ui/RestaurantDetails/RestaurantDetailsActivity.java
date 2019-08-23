@@ -136,7 +136,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements OnMa
     public void setRestaurantInView(Restaurant restaurant){
         txtName.setText(restaurant.getName());
         txtCousines.setText(getString(R.string.label_cousine)+" "+restaurant.getCuisines());
-        txtTimings.setText(getString(R.string.label_schedule)+" "+restaurant.getTimings());
+        txtTimings.setText(restaurant.getTimings());
         txtPhone.setText(getString(R.string.label_phone)+" "+restaurant.getPhone_numbers());
         txtAverageCostForTwo.setText(getString(R.string.label_average)+" "+restaurant.getAverage_cost_for_two() +" "+ restaurant.getCurrency());
         txtAddress.setText(restaurant.getLocation().getAddress());

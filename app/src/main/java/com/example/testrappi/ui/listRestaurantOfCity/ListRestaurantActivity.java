@@ -3,8 +3,10 @@ package com.example.testrappi.ui.listRestaurantOfCity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -78,15 +80,15 @@ public class ListRestaurantActivity extends AppCompatActivity implements ListRes
 
     @Override
     public void viewRestaurants(List<ObjectRestaurant> restaurants) {
-        loadListCity(restaurants);
+        loadListResturant(restaurants);
         progressDialog.dismiss();
     }
 
-    public void loadListCity(List<ObjectRestaurant> restaurants) {
+    public void loadListResturant(List<ObjectRestaurant> restaurants) {
         LinearLayoutManager manager = new LinearLayoutManager(ListRestaurantActivity.this, RecyclerView.VERTICAL, false);
         listRestaurant.setLayoutManager(manager);
-        RestaurantAdapter cityAdapter = new RestaurantAdapter(this, restaurants);
-        cityAdapter.setOnClickListener(new View.OnClickListener() {
+        RestaurantAdapter resturantAdapter = new RestaurantAdapter(this, restaurants);
+        resturantAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ListRestaurantActivity.this, RestaurantDetailsActivity.class);
@@ -96,7 +98,7 @@ public class ListRestaurantActivity extends AppCompatActivity implements ListRes
                 startActivity(intent);
             }
         });
-        listRestaurant.setAdapter(cityAdapter);
+        listRestaurant.setAdapter(resturantAdapter);
     }
 
 

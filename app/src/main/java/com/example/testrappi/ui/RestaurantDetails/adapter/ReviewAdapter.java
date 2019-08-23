@@ -23,7 +23,6 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewAdap
 
     private Context context;
     private List<ObjectReview> reviews;
-    public View.OnClickListener listener;
 
     public ReviewAdapter(Context context, List<ObjectReview> reviews) {
         this.context = context;

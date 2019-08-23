@@ -1,6 +1,7 @@
 package com.example.testrappi.api.services;
 
 import com.example.testrappi.api.callers.RestaurantSearchApiCaller;
+import com.example.testrappi.api.callers.ReviewsApiCaller;
 import com.example.testrappi.api.definitions.RestaurantRestApi;
 
 public class RestaurantRestService extends AbstractRestService<RestaurantRestApi> {
@@ -28,5 +29,9 @@ public class RestaurantRestService extends AbstractRestService<RestaurantRestApi
 
     public static RestaurantSearchApiCaller getRestaurants(Integer city_id){
         return new RestaurantSearchApiCaller(getInstance().getService(), city_id);
+    }
+
+    public static ReviewsApiCaller getReviews(Integer res_id){
+        return new ReviewsApiCaller(getInstance().getService(), res_id);
     }
 }

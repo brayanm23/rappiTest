@@ -85,40 +85,34 @@
                         android:layout_marginBottom="3dp"
                         android:fontFamily="sans-serif-light"
                         android:maxLines="1"
-                        android:text="bla vla bla"
+                        android:text="@string/label_location"
                         android:layout_gravity="center"
                         android:textStyle="bold"
                         android:textSize="@dimen/textsize_xs"/>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtAddress"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="sans-serif-light"
+                        android:maxLines="1"
+                        android:textSize="@dimen/textsize_s"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtCity"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="sans-serif-light"
+                        android:maxLines="1"
+                        android:textSize="@dimen/textsize_s"/>
+
                     <com.google.android.gms.maps.MapView
                         android:id="@+id/mapView"
+                        android:layout_marginTop="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="220dp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtBrand"
-                        android:layout_marginBottom="3dp"
-                        android:fontFamily="sans-serif-light"
-                        android:maxLines="1"
-                        android:textSize="@dimen/textsize_s"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtModel"
-                        android:layout_marginBottom="3dp"
-                        android:fontFamily="sans-serif-light"
-                        android:maxLines="1"
-                        android:textSize="@dimen/textsize_s"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtType"
-                        android:fontFamily="sans-serif-light"
-                        android:maxLines="1"
-                        android:textSize="@dimen/textsize_s" />
-
                     <View
                         style="@style/SeparatorVertical"
                         android:layout_marginTop="8dp" />
@@ -128,55 +122,15 @@
                         android:layout_marginBottom="8dp"
                         android:fontFamily="sans-serif-light"
                         android:maxLines="1"
-                        android:text="2222222"
+                        android:text="@string/label_review"
                         android:layout_gravity="center"
                         android:textSize="@dimen/textsize_xs"
                         android:textStyle="bold"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtMaintenenceDay"
-                        android:layout_marginBottom="3dp"
-                        android:fontFamily="sans-serif-light"
-                        android:maxLines="1"
-                        android:textSize="@dimen/textsize_s"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtMaintenenceKm"
-                        android:fontFamily="sans-serif-light"
-                        android:maxLines="1"
-                        android:textSize="@dimen/textsize_s"/>
 
-                    <View
-                        style="@style/SeparatorVertical"
-                        android:layout_marginTop="8dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:fontFamily="sans-serif-light"
-                        android:maxLines="1"
-                        android:text="33333333"
-                        android:layout_gravity="center"
-                        android:textSize="@dimen/textsize_xs"
-                        android:textStyle="bold"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtLocalWarrantyDay"
-                        android:layout_marginBottom="3dp"
-                        android:fontFamily="sans-serif-light"
-                        android:maxLines="1"
-                        android:textSize="@dimen/textsize_s"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtFactoryWarrantyExp"
-                        android:layout_marginBottom="10dp"
-                        android:fontFamily="sans-serif-light"
-                        android:maxLines="1"
-                        android:textSize="@dimen/textsize_s"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/listReview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
                 </LinearLayout>
 

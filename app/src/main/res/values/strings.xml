@@ -10,6 +10,15 @@
     <string name="label_restaurants">Restaurantes</string>
     <string name="edit_text_is_empty">El campo no puede ser vacio</string>
 
+    <string name="label_schedule">Horario:</string>
+    <string name="label_cousine">Tipo de Comida: </string>
+    <string name="label_average">Precio promedio de comida: </string>
+    <string name="label_phone">Telefono: </string>
+    <string name="label_location">Ubicacion</string>
+    <string name="label_review">Comentarios</string>
+
+    <string name="labelCity">Ciudad:</string>
+    <string name="label_address">Direccion:</string>
 
 
 </resources>

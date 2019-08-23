@@ -3,7 +3,7 @@ package com.example.testrappi.ui.listRestaurantOfCity;
 import android.content.Context;
 
 import com.example.testrappi.R;
-import com.example.testrappi.api.callers.CitiesApiCaller;
+import com.example.testrappi.api.callers.RestaurantSearchApiCaller;
 import com.example.testrappi.api.callers.CollectionsApiCaller;
 import com.example.testrappi.api.callers.RestaurantSearchApiCaller;
 import com.example.testrappi.api.observer.CallbackHandlingObserver;
@@ -62,35 +62,35 @@ public class ListRestaurantPresenter implements ListRestaurantContract.Presenter
 
     @Override
     public void onUnknownError(String error, Class caller) {
-        if(caller.equals(CitiesApiCaller.class)){
+        if(caller.equals(RestaurantSearchApiCaller.class) || caller.equals(CollectionsApiCaller.class)){
             mView.showErrorMessage(context.getString(R.string.error_accessing_server));
         }
     }
 
     @Override
     public void onTimeoutError(Class caller) {
-        if(caller.equals(CitiesApiCaller.class)){
+        if(caller.equals(RestaurantSearchApiCaller.class) || caller.equals(CollectionsApiCaller.class)){
             mView.showErrorMessage(context.getString(R.string.error_time_out));
         }
     }
 
     @Override
     public void onNetworkError(Class caller) {
-        if(caller.equals(CitiesApiCaller.class)){
+        if(caller.equals(RestaurantSearchApiCaller.class) || caller.equals(CollectionsApiCaller.class)){
             mView.showErrorMessage(context.getString(R.string.error_ocurred));
         }
     }
 
     @Override
     public void onBadRequestError(Class caller, String messageError) {
-        if(caller.equals(CitiesApiCaller.class)){
+        if(caller.equals(RestaurantSearchApiCaller.class) || caller.equals(CollectionsApiCaller.class)){
             mView.showErrorMessage(context.getString(R.string.error_accessing_server));
         }
     }
 
     @Override
     public void onServerError(Class caller) {
-        if(caller.equals(CitiesApiCaller.class)){
+        if(caller.equals(RestaurantSearchApiCaller.class) || caller.equals(CollectionsApiCaller.class)){
             mView.showErrorMessage(context.getString(R.string.error_accessing_server));
         }
     }

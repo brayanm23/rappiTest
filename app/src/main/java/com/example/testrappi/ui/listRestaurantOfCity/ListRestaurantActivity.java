@@ -17,6 +17,7 @@ import com.example.testrappi.R;
 import com.example.testrappi.models.city.City;
 import com.example.testrappi.models.collection.ObjectCollection;
 import com.example.testrappi.models.restaurant.ObjectRestaurant;
+import com.example.testrappi.ui.RestaurantDetails.RestaurantDetailsActivity;
 import com.example.testrappi.ui.listRestaurantOfCity.adapter.CollectionAdapter;
 import com.example.testrappi.ui.listRestaurantOfCity.adapter.RestaurantAdapter;
 
@@ -86,11 +87,11 @@ public class ListRestaurantActivity extends AppCompatActivity implements ListRes
         cityAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intent = new Intent(SearchCityActivity.this, ListRestaurantActivity.class);
+                Intent intent = new Intent(ListRestaurantActivity.this, RestaurantDetailsActivity.class);
                 Bundle extras = new Bundle();
-                extras.putSerializable("city", cities.get(listCities.getChildAdapterPosition(v)));
+                extras.putSerializable("restaurant", restaurants.get(listRestaurant.getChildAdapterPosition(v)).getRestaurant());
                 intent.putExtras(extras);
-                startActivity(intent);*/
+                startActivity(intent);
             }
         });
         listRestaurant.setAdapter(cityAdapter);

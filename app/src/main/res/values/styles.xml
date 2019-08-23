@@ -16,4 +16,14 @@
         <item name="android:layout_marginBottom">5dp</item>
     </style>
 
+    <style name="Carousel">
+        <item name="fillColor">@color/colorPrimary</item>
+        <item name="pageColor">#00000000</item>
+        <item name="radius">4dp</item>
+        <item name="slideInterval">0</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="autoPlay">false</item>
+    </style>
+
 </resources>

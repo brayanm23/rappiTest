@@ -47,7 +47,7 @@
             android:textSize="@dimen/textsize_l"/>
 
         <TextView
-            android:id="@+id/txtCousines"
+            android:id="@+id/txtCuisines"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorGrayLight"

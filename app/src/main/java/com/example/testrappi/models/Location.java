@@ -1,25 +1,46 @@
 package com.example.testrappi.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Location implements Serializable {
 
+    @Expose
+    @SerializedName("address")
     private String address;
 
+    @Expose
+    @SerializedName("locality")
     private String locality;
 
+    @Expose
+    @SerializedName("city")
     private String city;
 
+    @Expose
+    @SerializedName("city_id")
     private Integer city_id;
 
+    @Expose
+    @SerializedName("latitude")
     private Double latitude;
 
+    @Expose
+    @SerializedName("longitude")
     private Double longitude;
 
+    @Expose
+    @SerializedName("zipcode")
     private String zipcode;
 
+    @Expose
+    @SerializedName("country_id")
     private Integer country_id;
 
+    @Expose
+    @SerializedName("locality_verbose")
     private String locality_verbose;
 
     public Location() {

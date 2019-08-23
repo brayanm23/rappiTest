@@ -136,13 +136,13 @@ public class Restaurant implements Serializable {
         this.phone_numbers = phone_numbers;
     }
 
-    /*public Location getLocation() {
+    public Location getLocation() {
         return location;
     }
 
     public void setLocation(Location location) {
         this.location = location;
-    }*/
+    }
 
     /*
     "R":{  },

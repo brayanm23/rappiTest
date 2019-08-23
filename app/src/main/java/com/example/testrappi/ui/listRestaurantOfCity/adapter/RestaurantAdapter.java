@@ -38,7 +38,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
         public RestaurantAdapterViewHolder(View itemView) {
             super(itemView);
             txtName = (TextView) itemView.findViewById(R.id.txtName);
-            txtCousines = (TextView) itemView.findViewById(R.id.txtCousines);
+            txtCousines = (TextView) itemView.findViewById(R.id.txtCuisines);
             txtPhone = (TextView) itemView.findViewById(R.id.txtPhone);
             imgRest = (ImageView) itemView.findViewById(R.id.imgRest);
         }

@@ -1,25 +1,20 @@
-package com.example.testrappi.ui.listRestaurantOfCity;
+package com.example.testrappi.ui.restaurantofCollections;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.GridView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.testrappi.R;
-import com.example.testrappi.models.city.City;
-import com.example.testrappi.models.collection.ObjectCollection;
 import com.example.testrappi.models.restaurant.ObjectRestaurant;
 import com.example.testrappi.ui.RestaurantDetails.RestaurantDetailsActivity;
-import com.example.testrappi.ui.listRestaurantOfCity.adapter.CollectionAdapter;
 import com.example.testrappi.ui.listRestaurantOfCity.adapter.RestaurantAdapter;
 
 import java.util.List;
@@ -27,19 +22,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ListRestaurantActivity extends AppCompatActivity implements ListRestaurantContract.View {
+public class RestaurantOfCollectionsActivity extends AppCompatActivity implements RestaurantOfCollectionsContract.View{
 
     @BindView(R.id.listRestaurant)
     RecyclerView listRestaurant;
 
-    @BindView(R.id.gridCollection)
-    GridView gridCollection;
-
-    private Integer city_id;
     protected ProgressDialog progressDialog;
-    ListRestaurantContract.Presenter mPresenter;
-
-
+    RestaurantOfCollectionsContract.Presenter mPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,18 +39,15 @@ public class ListRestaurantActivity extends AppCompatActivity implements ListRes
         ButterKnife.bind(this);
         getSupportActionBar().setTitle(getString(R.string.label_restaurants));
         progressDialog = new ProgressDialog(this);
-        mPresenter = new ListRestaurantPresenter(this, this);
+        mPresenter = new RestaurantOfCollectionsPresenter(this, this);
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras != null) {
-            City city = (City) extras.getSerializable("city");
-            city_id = city.getId();
+            Integer city_id = extras.getInt("city_id");
+            String collection_id = extras.getString("collection_id");
             showProgressDialog(getString(R.string.searching));
-            mPresenter.getRestaurants(city.getId());
-            mPresenter.getCollections(city.getId());
+            mPresenter.getRestaurants(city_id, collection_id);
         }
-
-
     }
 
     @Override
@@ -75,21 +61,20 @@ public class ListRestaurantActivity extends AppCompatActivity implements ListRes
         }
     }
 
-
     @Override
     public void viewRestaurants(List<ObjectRestaurant> restaurants) {
-        loadListCity(restaurants);
+        loadListRestaurants(restaurants);
         progressDialog.dismiss();
     }
 
-    public void loadListCity(List<ObjectRestaurant> restaurants) {
-        LinearLayoutManager manager = new LinearLayoutManager(ListRestaurantActivity.this, RecyclerView.VERTICAL, false);
+    public void loadListRestaurants(List<ObjectRestaurant> restaurants) {
+        LinearLayoutManager manager = new LinearLayoutManager(RestaurantOfCollectionsActivity.this, RecyclerView.VERTICAL, false);
         listRestaurant.setLayoutManager(manager);
         RestaurantAdapter cityAdapter = new RestaurantAdapter(this, restaurants);
         cityAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ListRestaurantActivity.this, RestaurantDetailsActivity.class);
+                Intent intent = new Intent(RestaurantOfCollectionsActivity.this, RestaurantDetailsActivity.class);
                 Bundle extras = new Bundle();
                 extras.putSerializable("restaurant", restaurants.get(listRestaurant.getChildAdapterPosition(v)).getRestaurant());
                 intent.putExtras(extras);
@@ -97,19 +82,6 @@ public class ListRestaurantActivity extends AppCompatActivity implements ListRes
             }
         });
         listRestaurant.setAdapter(cityAdapter);
-    }
-
-
-    @Override
-    public void viewCollections(List<ObjectCollection> collections) {
-        CollectionAdapter adapter = new CollectionAdapter(ListRestaurantActivity.this, collections, city_id);
-        gridCollection.setAdapter(adapter);
-    }
-
-    @Override
-    public void showErrorMessage(String message) {
-        progressDialog.dismiss();
-        Toast.makeText(ListRestaurantActivity.this, message, Toast.LENGTH_LONG).show();
     }
 
     public void showProgressDialog(String message) {
@@ -126,5 +98,11 @@ public class ListRestaurantActivity extends AppCompatActivity implements ListRes
                 }
             }
         }
+    }
+
+    @Override
+    public void showErrorMessage(String message) {
+        progressDialog.dismiss();
+        Toast.makeText(RestaurantOfCollectionsActivity.this, message, Toast.LENGTH_LONG).show();
     }
 }

@@ -1,6 +1,8 @@
 package com.example.testrappi.ui.listRestaurantOfCity.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import com.example.testrappi.R;
 import com.example.testrappi.models.collection.Collection;
 import com.example.testrappi.models.collection.ObjectCollection;
+import com.example.testrappi.ui.restaurantofCollections.RestaurantOfCollectionsActivity;
 import com.example.testrappi.utils.ImagenUtils;
 
 import java.util.List;
@@ -19,10 +22,12 @@ public class CollectionAdapter extends BaseAdapter {
 
     private List<ObjectCollection> objectCollections;
     private Context context;
+    private Integer city_id;
 
-    public CollectionAdapter(Context context, List<ObjectCollection> objectCollections){
+    public CollectionAdapter(Context context, List<ObjectCollection> objectCollections, Integer city_id){
         this.context = context;
         this.objectCollections = objectCollections;
+        this.city_id = city_id;
     }
 
     @Override
@@ -54,6 +59,18 @@ public class CollectionAdapter extends BaseAdapter {
 
         txtTitle.setText(collection.getTitle());
         ImagenUtils.loadImage(context, collection.getImage_url(), imageCollection);
+
+        imageCollection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, RestaurantOfCollectionsActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("collection_id", String.valueOf(collection.getCollection_id()));
+                extras.putInt("city_id", city_id);
+                intent.putExtras(extras);
+                context.startActivity(intent);
+            }
+        });
 
         return view;
     }

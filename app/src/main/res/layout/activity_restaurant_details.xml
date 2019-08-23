@@ -88,13 +88,12 @@
                         android:text="@string/label_location"
                         android:layout_gravity="center"
                         android:textStyle="bold"
-                        android:textSize="@dimen/textsize_xs"/>
+                        android:textSize="@dimen/textsize_m"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtAddress"
-                        android:layout_marginBottom="3dp"
                         android:fontFamily="sans-serif-light"
                         android:maxLines="1"
                         android:textSize="@dimen/textsize_s"/>
@@ -105,7 +104,7 @@
                         android:layout_marginBottom="3dp"
                         android:fontFamily="sans-serif-light"
                         android:maxLines="1"
-                        android:textSize="@dimen/textsize_s"/>
+                        android:textSize="@dimen/textsize_xs"/>
 
                     <com.google.android.gms.maps.MapView
                         android:id="@+id/mapView"
@@ -124,7 +123,7 @@
                         android:maxLines="1"
                         android:text="@string/label_review"
                         android:layout_gravity="center"
-                        android:textSize="@dimen/textsize_xs"
+                        android:textSize="@dimen/textsize_m"
                         android:textStyle="bold"/>
 
                     <androidx.recyclerview.widget.RecyclerView

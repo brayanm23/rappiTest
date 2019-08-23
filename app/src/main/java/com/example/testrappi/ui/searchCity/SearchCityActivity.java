@@ -50,8 +50,12 @@ public class SearchCityActivity extends AppCompatActivity implements SearchCityC
             @Override
             public void onClick(View v) {
                 if(!edtSearch.getText().toString().equals("") ){
-                    showProgressDialog(getString(R.string.searching));
-                    mPresenter.getCities(edtSearch.getText().toString());
+                    if(edtSearch.getText().toString().length()>=2) {
+                        showProgressDialog(getString(R.string.searching));
+                        mPresenter.getCities(edtSearch.getText().toString());
+                    }else{
+                        Toast.makeText(SearchCityActivity.this, getString(R.string.edit_text_is_short), Toast.LENGTH_LONG).show();
+                    }
                 } else {
                     Toast.makeText(SearchCityActivity.this, getString(R.string.edit_text_is_empty), Toast.LENGTH_LONG).show();
                 }

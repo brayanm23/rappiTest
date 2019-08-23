@@ -28,7 +28,11 @@ public class RestaurantRestService extends AbstractRestService<RestaurantRestApi
     }
 
     public static RestaurantSearchApiCaller getRestaurants(Integer city_id){
-        return new RestaurantSearchApiCaller(getInstance().getService(), city_id);
+        return new RestaurantSearchApiCaller(getInstance().getService(), city_id, null);
+    }
+
+    public static RestaurantSearchApiCaller getRestaurantsOfCollections(Integer city_id, String collection_id){
+        return new RestaurantSearchApiCaller(getInstance().getService(), city_id, collection_id);
     }
 
     public static ReviewsApiCaller getReviews(Integer res_id){

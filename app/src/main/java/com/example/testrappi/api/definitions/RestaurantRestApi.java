@@ -12,12 +12,6 @@ public interface RestaurantRestApi {
 
     public static String url = "https://developers.zomato.com/api/v2.1/";
 
-    @GET("restaurant")
-    Observable<?> getRestaurantDetails(@Header("user_key") String user_key, @Query("res_id") Integer res_id);
-
-    @GET("dailymenu")
-    Observable<?> getDailyMenuOfrestaurant(@Header("user_key") String user_key, @Query("res_id") Integer res_id);
-
     @GET("reviews")
     Observable<ListReview> getRewiews(@Header("user_key") String user_key,
                                       @Query("res_id") Integer res_id);
@@ -25,6 +19,7 @@ public interface RestaurantRestApi {
     @GET("search")
     Observable<ListRestaurants> searchOfRestautants(@Header("user_key") String user_key,
                                                     @Query("entity_id") Integer city_id,
-                                                    @Query("entity_type") String entity_type);
+                                                    @Query("entity_type") String entity_type,
+                                                    @Query("collection_id") String collection_id);
 
 }

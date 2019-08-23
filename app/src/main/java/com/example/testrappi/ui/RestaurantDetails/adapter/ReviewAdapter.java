@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +34,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewAdap
 
         private TextView txtName, txtReview, txtDate;
         private CircleImageView imgProfile;
+        private RatingBar ratingBar;
 
         public ReviewAdapterViewHolder(View itemView) {
             super(itemView);
@@ -40,6 +42,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewAdap
             txtReview = (TextView) itemView.findViewById(R.id.txtReview);
             txtDate = (TextView) itemView.findViewById(R.id.txtDate);
             imgProfile = (CircleImageView) itemView.findViewById(R.id.imgProfile);
+            ratingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
         }
     }
 
@@ -58,12 +61,13 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewAdap
         TextView txtReview = holder.txtReview;
         TextView txtDate = holder.txtDate;
         CircleImageView imgProfile = holder.imgProfile;
+        RatingBar ratingBar = holder.ratingBar;
 
         ImagenUtils.loadImage(context, review.getUser().getProfile_image(), imgProfile);
         txtName.setText(review.getUser().getName());
         txtReview.setText(review.getReview_text());
         txtDate.setText(review.getReview_time_friendly());
-        //txtName.setText();
+        ratingBar.setRating(review.getRating());
 
     }
 

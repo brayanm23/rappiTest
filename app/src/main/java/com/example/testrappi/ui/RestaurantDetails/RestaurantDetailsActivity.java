@@ -3,7 +3,6 @@ package com.example.testrappi.ui.RestaurantDetails;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,11 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.testrappi.R;
 import com.example.testrappi.models.restaurant.Restaurant;
 import com.example.testrappi.models.review.ObjectReview;
-import com.example.testrappi.models.review.Review;
 import com.example.testrappi.ui.RestaurantDetails.adapter.ReviewAdapter;
-import com.example.testrappi.ui.listRestaurantOfCity.ListRestaurantActivity;
-import com.example.testrappi.ui.listRestaurantOfCity.ListRestaurantContract;
-import com.example.testrappi.ui.listRestaurantOfCity.adapter.RestaurantAdapter;
 import com.example.testrappi.utils.ImagenUtils;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -144,15 +139,15 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements OnMa
         txtTimings.setText(getString(R.string.label_schedule)+" "+restaurant.getTimings());
         txtPhone.setText(getString(R.string.label_phone)+" "+restaurant.getPhone_numbers());
         txtAverageCostForTwo.setText(getString(R.string.label_average)+" "+restaurant.getAverage_cost_for_two() +" "+ restaurant.getCurrency());
-        txtAddress.setText(getString(R.string.label_address)+" "+restaurant.getLocation().getAddress());
-        txtCity.setText(getString(R.string.labelCity)+" "+restaurant.getLocation().getCity());
+        txtAddress.setText(restaurant.getLocation().getAddress());
+        txtCity.setText(restaurant.getLocation().getCity());
         carouselView.setImageListener(new ImageListener() {
             @Override
             public void setImageForPosition(int position, ImageView imageView) {
-                ImagenUtils.loadImage(RestaurantDetailsActivity.this, restaurant.getFeatured_image(), imageView);
+                ImagenUtils.loadImage(RestaurantDetailsActivity.this, restaurant.getPhotos().get(position).getPhoto().getUrl(), imageView);
             }
         });
-        carouselView.setPageCount(2);
+        carouselView.setPageCount(restaurant.getPhotos().size());
     }
 
     @Override
